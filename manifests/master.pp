@@ -14,6 +14,10 @@ class classroom::master {
     target => '/usr/bin/pip',
   }
 
+  file { '/root/.gemrc':
+    ensure =>  file,
+  }
+
   if $classroom::offline {
     # Install the Gitea hosted git repository service
     include classroom::master::gitea
